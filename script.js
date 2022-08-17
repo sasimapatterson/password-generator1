@@ -1,29 +1,38 @@
 // Assignment Code
-//var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");
 
-//function generatePassword() {
-  //var passwordlength = Number(prompt("How long would you like for your password?"));
-  //var lowerChar = prompt("Would you like lowercases in your password?");
+function generatePassword() {
+
+  var passwordLength = Number(prompt("How long would you like for your password?"));
+   if (passwordLength < 8 || passwordLength > 128) {
+    alert("Password must be between 8 and 12 characters");
+   } else {
+    alert("Click ok to continue");
+   }
+
+   var lowercases = "abcdefghijklmnopqrstuvwxyz";
+   var lowerChar = confirm("Would you like lowercases in your password?");
+    if (lowerChar === true) {
+      alert("Yes!");
+    }
+
+    
+
   //var upperCase = prompt("Would you like uppcase letters in your password?");
   //var number = Number(prompt("Would you like numbers in your password?"));
   //var specialChar = prompt("Would you like special characters in your password?");
-//}
+  return "Return sth";
+}
 
 // Write password to the #password input
-//function writePassword() {
- // var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
   
 
-  //passwordText.value = password;
+  passwordText.value = password;
 
-//}
+}
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
-
-var passwordLength = Number(prompt("Length pls?"));
-
-if (passwordLenght < 8) {
-    console.log("Longer please");
-}
+generateBtn.addEventListener("click", writePassword);
