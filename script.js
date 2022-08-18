@@ -8,8 +8,8 @@ function generatePassword() {
   var uppercases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var nums = "0123456789";
   var symbols = "\" \"#$%&'()*+,-./:;<=>?@[\]^\`{|}~\" ";
-  var possibleChar = [];
-  var finalPassword = [];
+  var possibleChar = "";
+  var finalPassword = "";
 
   var passwordLength = Number(prompt("How long would you like for your password?"));
   console.log(passwordLength);
@@ -23,31 +23,37 @@ function generatePassword() {
   var specialChar = confirm("Would you like special characters in your password?");
 
   if (lowerChar === true) {
-    possibleChar.push(lowercases);
+    //possibleChar.push(lowercases);
+    possibleChar = possibleChar.concat(lowercases);
     console.log(possibleChar);
   }
 
   if (upperChar === true) {
-    possibleChar.push(uppercases);
+    //possibleChar.push(uppercases);
+    possibleChar = possibleChar.concat(uppercases);
     console.log(possibleChar);
   }
 
   if (numbers === true) {
-    possibleChar.push(nums);
+    //possibleChar.push(nums);
+    possibleChar = possibleChar.concat(nums);
     console.log(possibleChar);
   }
 
   if (specialChar === true) {
-    possibleChar.push(symbols);
+    //possibleChar.push(symbols);
+    possibleChar = possibleChar.concat(symbols);
     console.log(possibleChar);
-
-    for (var i = 0; i < passwordLength; i++);
-    finalPassword = Math.floor(Math.random() * possibleChar.length);
-    return finalPassword[possibleChar];
+  }
+    for (var i = 0; i < passwordLength; i++) {
+      
+      finalPassword += possibleChar[Math.floor(Math.random() * possibleChar.length)];
+      return finalPassword.join();
+    }
+      
   }
 
 
-}
 
 
 
