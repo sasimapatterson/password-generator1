@@ -10,10 +10,17 @@ function generatePassword() {
     alert("Click ok to continue");
    }
 
-   var lowercases = "abcdefghijklmnopqrstuvwxyz";
+   
    var lowerChar = confirm("Would you like lowercases in your password?");
-    if (lowerChar === true) {
-      alert("Yes!");
+    if (lowerChar === true) { 
+      var lowercases = "abcdefghijklmnopqrstuvwxyz";
+      var randomLowercases = " ";
+      for (var i = 0; i < lowercases.length; i++) {
+        randomLowercases = Math.floor(Math.random() * lowercases.length);
+
+        return (randomLowercases);
+      }
+
     }
 
     
