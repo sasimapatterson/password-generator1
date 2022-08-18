@@ -10,18 +10,31 @@ function generatePassword() {
     alert("Click ok to continue");
    }
 
-   
    var lowerChar = confirm("Would you like lowercases in your password?");
     if (lowerChar === true) { 
       var lowercases = "abcdefghijklmnopqrstuvwxyz";
-      var randomLowercases = " ";
+      var randomLowercases = [];
       for (var i = 0; i < lowercases.length; i++) {
-        randomLowercases = Math.floor(Math.random() * lowercases.length);
-
-        return (randomLowercases);
-      }
-
+        randomLowercases = lowercases.charAt(Math.floor(Math.random() * lowercases.length));   
+      }    
+      return randomLowercases;  
+     // alert("Click ok to continue");   
     }
+    
+     
+  } 
+    
+      
+    var upperChar = confirm("Would you like uppercases in your password?");
+    if (upperChar === true) { 
+      var uppercases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var randomUppercases = " ";
+      for (var i = 0; i < uppercases.length; i++) {
+        randomUppercases = uppercases.charAt(Math.floor(Math.random() * uppercases.length));
+        return randomUppercases;
+      } 
+
+    
 
     
 
