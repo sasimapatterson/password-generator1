@@ -7,7 +7,7 @@ function generatePassword() {
   var lowercases = "abcdefghijklmnopqrstuvwxyz";
   var uppercases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var nums = "0123456789";
-  var symbols = "\" \"#$%&'()*+,-./:;<=>?@[\]^\`{|}~\" ";
+  var symbols = "\"\"#$%&'()*+,-./:;<=>?@[\]^\`{|}~\"";
   var possibleChar = "";
   var finalPassword = "";
 
@@ -15,21 +15,25 @@ function generatePassword() {
   console.log(passwordLength);
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     alert("Password must be between 8 and 12 characters");
-    return generatePassword();
+    return; //generatePassword();
   }
   var lowerChar = confirm("Would you like lowercases in your password?");
   var upperChar = confirm("Would you like uppercases in your password?");
   var numbers = confirm("Would you like numbers in your password?");
   var specialChar = confirm("Would you like special characters in your password?");
 
+  if (!lowerChar && !uppercases && !numbers && !specialChar) {
+    alert("You must ");
+    return;
+  }
+
+
   if (lowerChar === true) {
-    //possibleChar.push(lowercases);
     possibleChar = possibleChar.concat(lowercases);
     console.log(possibleChar);
   }
 
-  if (upperChar === true) {
-    //possibleChar.push(uppercases);
+  if (upperChar === true) {  
     possibleChar = possibleChar.concat(uppercases);
     console.log(possibleChar);
   }
@@ -48,13 +52,10 @@ function generatePassword() {
     for (var i = 0; i < passwordLength; i++) {
       
       finalPassword += possibleChar[Math.floor(Math.random() * possibleChar.length)];
-      return finalPassword.join();
+     
     }
-      
+    return finalPassword;  
   }
-
-
-
 
 
 
@@ -62,6 +63,9 @@ function generatePassword() {
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  if (typeof password === 'undefined') {
+    password = "";
+  }
   var passwordText = document.querySelector("#password");
 
 
