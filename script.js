@@ -14,7 +14,7 @@ function generatePassword() {
   var passwordLength = Number(prompt("How long would you like for your password?"));
   console.log(passwordLength);
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-    alert("Password must be between 8 and 12 characters");
+    alert("Password must be between 8 and 128 characters");
     return generatePassword();
   }
   var lowerChar = confirm("Would you like lowercases in your password?");
