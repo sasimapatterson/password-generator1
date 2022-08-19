@@ -15,17 +15,16 @@ function generatePassword() {
   console.log(passwordLength);
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     alert("Password must be between 8 and 12 characters");
-    return; //generatePassword();
+    return generatePassword();
   }
   var lowerChar = confirm("Would you like lowercases in your password?");
   var upperChar = confirm("Would you like uppercases in your password?");
   var numbers = confirm("Would you like numbers in your password?");
   var specialChar = confirm("Would you like special characters in your password?");
 
-  if (!lowerChar && !uppercases && !numbers && !specialChar) {
-    alert("You must ");
-    return;
-  }
+  if (lowerChar !== true && uppercases !== true && numbers !== true && specialChar !== true) {
+    alert("You must select at least one category. Please start again.");  
+  } 
 
 
   if (lowerChar === true) {
@@ -45,7 +44,6 @@ function generatePassword() {
   }
 
   if (specialChar === true) {
-    //possibleChar.push(symbols);
     possibleChar = possibleChar.concat(symbols);
     console.log(possibleChar);
   }
@@ -63,9 +61,6 @@ function generatePassword() {
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  if (typeof password === 'undefined') {
-    password = "";
-  }
   var passwordText = document.querySelector("#password");
 
 
