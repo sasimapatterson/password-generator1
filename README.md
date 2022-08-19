@@ -19,6 +19,6 @@ Password Generator Web Application
 ![password generator with generated password](./images/Password%20Generator.png)
 
 ## Website
-[Link Password Generator Web Application](https://sasimapatterson.github.io/password-generator1/)
+[Password Generator Web Application](https://sasimapatterson.github.io/password-generator1/)
 
 
